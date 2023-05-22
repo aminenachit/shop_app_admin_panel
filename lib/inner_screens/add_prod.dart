@@ -286,7 +286,7 @@ class _UploadProductFormState extends State<UploadProductForm> {
                                         Row(
                                           children: [
                                             TextWidget(
-                                              text: 'KG',
+                                              text: '1piece',
                                               color: color,
                                             ),
                                             Radio(

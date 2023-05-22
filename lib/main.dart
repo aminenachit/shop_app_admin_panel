@@ -18,7 +18,6 @@ Future<void> main() async {
     appId: "1:937666770377:web:bb9207a513c02eaaaae418",
     storageBucket: "mediashop-f69cb.appspot.com",
   ));
-
   runApp(const MyApp());
 }
 

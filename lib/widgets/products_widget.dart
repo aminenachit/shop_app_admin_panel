@@ -78,7 +78,7 @@ class _ProductWidgetState extends State<ProductWidget> {
                   salePrice: salePrice,
                   productCat: productCat,
                   imageUrl: imageUrl == null
-                      ? 'https://www.ubuy.ma/productimg/?image=aHR0cHM6Ly9pNS53YWxtYXJ0aW1hZ2VzLmNvbS9hc3IvMDE4ZjMzYjQtNWIwNi00ZWJkLWFlNTQtYWEzOTUzOGZkM2ZmLmYzYmJlNWJhYjE5Mjc2MGQ4MTEwZjIzMjJlNDgwNWM4LnBuZw.jpg'
+                      ? 'https://fso-qbp.justplug.fr/loadFile/61519125cae65c77d7c9a2fd//webp/600/0/75'
                       : imageUrl!,
                   isOnSale: isOnSale,
                   isPiece: isPiece,
@@ -100,7 +100,7 @@ class _ProductWidgetState extends State<ProductWidget> {
                       flex: 3,
                       child: Image.network(
                         imageUrl == null
-                            ? 'https://www.ubuy.ma/productimg/?image=aHR0cHM6Ly9pNS53YWxtYXJ0aW1hZ2VzLmNvbS9hc3IvMDE4ZjMzYjQtNWIwNi00ZWJkLWFlNTQtYWEzOTUzOGZkM2ZmLmYzYmJlNWJhYjE5Mjc2MGQ4MTEwZjIzMjJlNDgwNWM4LnBuZw.jpg'
+                            ? 'https://fso-qbp.justplug.fr/loadFile/61519125cae65c77d7c9a2fd//webp/600/0/75'
                             : imageUrl!,
                         fit: BoxFit.fill,
                         // width: screenWidth * 0.12,
@@ -151,7 +151,7 @@ class _ProductWidgetState extends State<ProductWidget> {
                         )),
                     const Spacer(),
                     TextWidget(
-                      text: isPiece ? 'Piece' : '1Kg',
+                      text: isPiece ? 'Piece' : '1piece',
                       color: color,
                       textSize: 18,
                     ),
