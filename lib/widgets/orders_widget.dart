@@ -35,7 +35,7 @@ class _OrdersWidgetState extends State<OrdersWidget> {
               Flexible(
                 flex: size.width < 650 ? 3 : 1,
                 child: Image.network(
-                  'https://www.transparentpng.com/download/-iphone-x/DTctGB-iphone-transparent-shop.png',
+                  'https://www.ubuy.ma/productimg/?image=aHR0cHM6Ly9pNS53YWxtYXJ0aW1hZ2VzLmNvbS9hc3IvMDE4ZjMzYjQtNWIwNi00ZWJkLWFlNTQtYWEzOTUzOGZkM2ZmLmYzYmJlNWJhYjE5Mjc2MGQ4MTEwZjIzMjJlNDgwNWM4LnBuZw.jpg',
 
                   fit: BoxFit.fill,
                   // height: screenWidth * 0.15,
@@ -52,7 +52,7 @@ class _OrdersWidgetState extends State<OrdersWidget> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     TextWidget(
-                      text: '2x For \$749',
+                      text: '2x For \$799',
                       color: color,
                       textSize: 16,
                       isTitle: true,
@@ -67,7 +67,7 @@ class _OrdersWidgetState extends State<OrdersWidget> {
                             isTitle: true,
                           ),
                           TextWidget(
-                            text: '  Amine',
+                            text: '  Amine.',
                             color: color,
                             textSize: 14,
                             isTitle: true,
@@ -76,7 +76,7 @@ class _OrdersWidgetState extends State<OrdersWidget> {
                       ),
                     ),
                     const Text(
-                      '25/04/2023',
+                      '07/05/2023',
                     )
                   ],
                 ),

@@ -10,7 +10,7 @@ import 'package:shop_app_admin_panel/widgets/products_widget.dart';
 import 'package:shop_app_admin_panel/widgets/text_widget.dart';
 import 'package:provider/provider.dart';
 
-import '../controllers/MenuController.dart' as xx;
+import '../controllers/MenuController.dart'as xx;
 import '../widgets/grid_products.dart';
 import '../widgets/orders_list.dart';
 import '../widgets/orders_widget.dart';

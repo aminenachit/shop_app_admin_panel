@@ -1,7 +1,7 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app_admin_panel/screens/main_screen.dart';
 import 'package:provider/provider.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 import 'consts/theme_data.dart';
 import 'controllers/MenuController.dart' as xx;
@@ -11,11 +11,12 @@ import 'providers/dark_theme_provider.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-      options: FirebaseOptions(
+      options: const FirebaseOptions(
     apiKey: "AIzaSyDO8jRdGhCxavOVhFATzcbOjUWepRJvWMU",
     projectId: "mediashop-f69cb",
     messagingSenderId: "937666770377",
     appId: "1:937666770377:web:bb9207a513c02eaaaae418",
+    storageBucket: "mediashop-f69cb.appspot.com",
   ));
 
   runApp(const MyApp());
@@ -42,32 +43,61 @@ class _MyAppState extends State<MyApp> {
     super.initState();
   }
 
+  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: (_) => xx.MenuController(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) {
-            return themeChangeProvider;
-          },
-        ),
-      ],
-      child: Consumer<DarkThemeProvider>(
-        builder: (context, themeProvider, child) {
-          return MaterialApp(
+    return FutureBuilder(
+        future: _initialization,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const MaterialApp(
               debugShowCheckedModeBanner: false,
-              title: 'MediaShop',
-              theme: Styles.themeData(themeProvider.getDarkTheme, context),
-              home: const MainScreen(),
-              routes: {
-                UploadProductForm.routeName: (context) =>
-                    const UploadProductForm(),
-              });
-        },
-      ),
-    );
+              home: Scaffold(
+                body: Center(
+                  child: Center(
+                    child: Text('App is being initialized'),
+                  ),
+                ),
+              ),
+            );
+          } else if (snapshot.hasError) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              home: Scaffold(
+                body: Center(
+                  child: Center(
+                    child: Text('An error has been occured ${snapshot.error}'),
+                  ),
+                ),
+              ),
+            );
+          }
+          return MultiProvider(
+            providers: [
+              ChangeNotifierProvider(
+                create: (_) => xx.MenuController(),
+              ),
+              ChangeNotifierProvider(
+                create: (_) {
+                  return themeChangeProvider;
+                },
+              ),
+            ],
+            child: Consumer<DarkThemeProvider>(
+              builder: (context, themeProvider, child) {
+                return MaterialApp(
+                    debugShowCheckedModeBanner: false,
+                    title: 'Grocery',
+                    theme:
+                        Styles.themeData(themeProvider.getDarkTheme, context),
+                    home: const MainScreen(),
+                    routes: {
+                      UploadProductForm.routeName: (context) =>
+                          const UploadProductForm(),
+                    });
+              },
+            ),
+          );
+        });
   }
 }
