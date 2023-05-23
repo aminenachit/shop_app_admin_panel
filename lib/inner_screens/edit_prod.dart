@@ -109,7 +109,7 @@ class _EditProductScreenState extends State<EditProductScreen> {
           final ref = FirebaseStorage.instance
               .ref()
               .child('productsImages')
-              .child(widget.id + 'jpg');
+              .child(widget.id + 'png');
           if (kIsWeb) {
             await ref.putData(webImage);
           } else {

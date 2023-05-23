@@ -74,7 +74,7 @@ class _UploadProductFormState extends State<UploadProductForm> {
         final ref = FirebaseStorage.instance
             .ref()
             .child('userImages')
-            .child('$_uuid.jpg');
+            .child('$_uuid.png');
         if (kIsWeb) {
           await ref.putData(webImage);
         } else {
